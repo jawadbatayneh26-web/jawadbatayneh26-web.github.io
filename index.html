@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشمال لإدارة المرافق والأمن | إدارة ذكية.. أمان مستدام</title>
+    <!-- FontAwesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #020617; /* الأزرق الداكن الملكي */
+            --secondary-color: #deff9a; /* الأخضر الفسفوري */
+            --text-dark: #0f172a;
+            --text-light: #f8fafc;
+            --gray-bg: #f1f5f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* الهيدر والقائمة */
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* القسم الرئيسي (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.85)), url('https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=1280') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c5eb7a;
+            transform: translateY(-2px);
+        }
+
+        /* الأقسام العامة */
+        section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* من نحن */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #475569;
+        }
+
+        /* الخدمات */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--gray-bg);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-top-color: var(--secondary-color);
+        }
+
+        .service-card i {
+            font-size: 45px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #475569;
+        }
+
+        /* كلفة وجدوى مبسطة */
+        .finance-box {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .finance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .finance-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .finance-item h4 {
+            color: var(--secondary-color);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* اتصل بنا / حجز موعد */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* التذييل */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        /* التجاوب مع الموبايل */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .about-content { flex-direction: column; }
+            .contact-container { flex-direction: column; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="navbar">
+            <div class="logo"><i class="fa-solid fa-shield-halved"></i> الشمال <span>لإدارة المرافق</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#finance">الميزانية</a></li>
+                <li><a href="#contact">طلب خدمة</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section id="home" class="hero">
+        <h1>شركة الشمال <span>لإدارة المرافق والأمن</span></h1>
+        <p>الحل المتكامل والأول من نوعه في إقليم الشمال لإدارة الصيانة، النظافة، والحراسة الأمنية تحت سقف واحد وبإدارة رقمية ذكية.</p>
+        <a href="#contact" class="btn"><i class="fa-solid fa-calendar-check"></i> اطلب فحصاً مجانياً لمرفقك الآن</a>
+    </section>
+
+    <!-- من نحن -->
+    <section id="about">
+        <h2 class="section-title">من نحن</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>نحن في <strong>شركة الشمال</strong> نقدم رؤية جديدة كلياً في قطاع إدارة المنشآت في مدينة إربد. ندمج بين الكفاءة البشرية وأحدث التقنيات الهندسية والأمنية لنمنح العقارات والمجمعات التجارية قيمة مستدامة وأماناً مطلقاً.</p>
+                <p>عبر نظامنا الرقمي المتطور وتطبيق "الشمال برو"، نتيح للملاك والمستثمرين متابعة حالة منشآتهم المادية والأمنية والمالية لحظة بلحظة وبأعلى درجات الشفافية والاحترافية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الخدمات -->
+    <section id="services" style="background-color: #fafafa; max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">خدماتنا المتكاملة</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>الأمن والحراسة</h3>
+                    <p>طواقم حراسة مدربة ومجهزة على مدار الساعة لتأمين البوابات، المداخل، ومراقبة الكاميرات والأنظمة الذكية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>الصيانة الفنية والهندسية</h3>
+                    <p>صيانة وقائية وطارئة لكافة أنظمة الكهرباء، السباكة (الصحية)، والتكييف بأيدي أمهر الفنيين في إربد.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-broom"></i>
+                    <h3>النظافة والتعقيم</h3>
+                    <p>تنظيف دوري للمرافق المشتركة، السلالم، الواجهات الزجاجية الخارجية، وإدارة النفايات للمجمعات.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>الإدارة الرقمية (الشمال برو)</h3>
+                    <p>تطبيق ذكي يربط السكان والملاك بغرفة العمليات لرفع الطلبات ومتابعة السجلات والتقارير المالية والتشغيلية فورياً.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الميزانية والجدوى -->
+    <section id="finance">
+        <h2 class="section-title">المؤشرات المالية والتشغيلية التقديرية</h2>
+        <div class="finance-box">
+            <h3>ميزانية السنة التشغيلية الأولى للشركة</h3>
+            <p>رؤية مالية مدروسة تضمن كفاءة الأداء واستمرارية الخدمة بأعلى معايير الجودة.</p>
+            <div class="finance-grid">
+                <div class="finance-item">
+                    <h4>17,800 د.أ</h4>
+                    <p>تكاليف التأسيس والأصول (CAPEX)</p>
+                </div>
+                <div class="finance-item">
+                    <h4>5,200 د.أ</h4>
+                    <p>المصاريف التشغيلية الشهرية (OPEX)</p>
+                </div>
+                <div class="finance-item">
+                    <h4>80,200 د.أ</h4>
+                    <p>الميزانية الإجمالية للسنة الأولى</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- طلب خدمة -->
+    <section id="contact">
+        <h2 class="section-title">اطلب خدمة أو استشارة مجانية</h2>
+        <div class="contact-container">
+            <form id="orderForm" onsubmit="handleFormSubmit(event)">
+                <input type="text" placeholder="اسمك الكريم / اسم المنشأة" required>
+                <input type="tel" placeholder="رقم الهاتف والواتساب" required>
+                <select required>
+                    <option value="">اختر الخدمة المطلوبة...</option>
+                    <option value="كامل">إدارة متكاملة (أمن + صيانة + نظافة)</option>
+                    <option value="أمن">أمن وحراسة فقط</option>
+                    <option value="صيانة">صيانة فنية طارئة ودورية</option>
+                </select>
+                <textarea rows="5" placeholder="تفاصيل إضافية حول العقار أو الطلب (المنطقة، عدد الشقق، إلخ)..."></textarea>
+                <button type="submit" class="btn">إرسال الطلب الفني</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <p>© 2026 شركة الشمال لإدارة المرافق والأمن. جميع الحقوق محفوظة.</p>
+        <p style="font-size: 14px; color: #94a3b8; margin-top: 5px;">إربد، المملكة الأردنية الهاشمية | إدارة ذكية.. أمان مستدام</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('تم استلام طلبك بنجاح في نظام الشمال لإدارة المرافق! سيتواصل معك مندوبنا الفني في إربد خلال 24 ساعة لترتيب موعد المعاينة المجانية الميدانية للموقع.');
+            document.getElementById('orderForm').reset();
+        }
+    </script>
+</body>
+</html>
